@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/form.css">
+    <title>form</title>
+    
+</head>
+<body>
+    <div class="form-container">
+        <form>
+          <label for="person-name">Person Name:</label>
+          <input type="text" id="person-name" name="person-name" required>
+      
+          <label for="restaurant-name">Restaurant Name:</label>
+          <input type="text" id="restaurant-name" name="restaurant-name" required>
+      
+          <label for="num-people">Number of People:</label>
+          <select id="num-people" name="num-people" required>
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10+">10+</option>
+          </select>
+      
+          <label for="reservation-time">Reservation Time:</label>
+          <input type="datetime-local" id="reservation-time" name="reservation-time" required>
+      
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      
+    
+</body>
+</html>

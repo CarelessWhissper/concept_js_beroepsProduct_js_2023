@@ -4,85 +4,146 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home page</title>
-    <link rel="stylesheet" href="../css/ticket.css" />
+    <title>Ticket</title>
+    <!-- Latest compiled and minified CSS -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../css/ticket.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+
+    <!-- Include bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+
+    <!-- Include bootstrap datepicker CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Include bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Include bootstrap datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
   </head>
-  <body>
-    
-    <header class="header">
-     
-
-      <nav class="navbar">
-        <a href="HomePage.html">Home</a>
-        <a href="ticket.html">Tickets To Suriname</a>
-        <a href="">Restaurants</a>
-        <a href="">Hotels</a>
-        <a href="">About us</a>
-        <a href="">Contact</a>
-      </nav>
-    </header>
-
-    <section class="form-section">
-
-       
-        <form class="form" action="reservation.php" method="post">
-            <div class="elem-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="visitor_name" placeholder="John Doe" pattern=[A-Z\sa-z]{3,20} required>
-            </div>
-            <div class="elem-group">
-              <label for="email">Your E-mail</label>
-              <input type="email" id="email" name="visitor_email" placeholder="john.doe@email.com" required>
-            </div>
-            <div class="elem-group">
-              <label for="phone">Your Phone</label>
-              <input type="tel" id="phone" name="visitor_phone" placeholder="498-348-3872" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
-            </div>
-            <hr>
-            <div class="elem-group inlined">
-              <label for="adult">Adults</label>
-              <input type="number" id="adult" name="total_adults" placeholder="2" min="1" required>
-            </div>
-            <div class="elem-group inlined">
-              <label for="child">Children</label>
-              <input type="number" id="child" name="total_children" placeholder="2" min="0" required>
-            </div>
-            <div class="elem-group inlined">
-              <label for="checkin-date">Check-in Date</label>
-              <input type="date" id="checkin-date" name="checkin" required>
-            </div>
-            <div class="elem-group inlined">
-              <label for="checkout-date">Check-out Date</label>
-              <input type="date" id="checkout-date" name="checkout" required>
-            </div>
-            <div class="elem-group">
-              <label for="room-selection">Select Room Preference</label>
-              <select id="room-selection" name="room_preference" required>
-                  <option value="">Choose a Room from the List</option>
-                  <option value="connecting">Connecting</option>
-                  <option value="adjoining">Adjoining</option>
-                  <option value="adjacent">Adjacent</option>
-              </select>
-            </div>
-            <hr>
-
-            <button type="submit">Book Flight to Suriname</button>
-          </form>
-        
-    </section>
-  
-
+  <body onload="getCountries()">
+    <section>
+      <header class="header">
+        <nav class="navbar">
+          <a href="HomePage.html">Home</a>
+          <a href="ticket.html">Tickets</a>
+          <a href="restaurant.html">Restaurants</a>
+          <a href="">Hotels</a>
+          <a href="">About us</a>
+          <a href="">Contact</a>
+        </nav>
+      </header>
    
-    
-       
-    
-  
-      
 
-    <script src=""></script>
+    <section>
+      <div class="form-body">
+        <div class="row">
+          <div class="form-holder">
+            <div class="form-content">
+              <div class="form-items">
+                <h3>BOOK A FLIGHT TO SURINAME RIGHT NOW</h3>
+                <p>Fill in the data below.</p>
+                <form class="requires-validation" novalidate>
+                  <div class="col-md-12">
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="name"
+                      placeholder="Full Name"
+                      required
+                    />
+                    </div>
+
+                    <div class="col-md-12">
+                      <label for="control-label" >Departing location</label>
+                     <select class="form-control" id="countries" ></select>
+                    </div>
+
+
+                  <div class="col-md-12">
+                    <select class="form-select mt-3" required>
+                      <option selected disabled value="">Accommodation Type</option>
+                      <option value="econ">Economy</option>
+                      <option value="pecon">Premium Economy</option>
+                      <option value="bclass">Business Class</option>
+                      <option value="fclass">First Class</option>
+                    </select>
+                    
+                  </div>
+
+                  <div class="div col-md-12">
+                    <label for="startDate" ></label>
+                    <input type="text" class="form-control" id="startDate" placeholder="Depart Date">
+                  
+                   </div>
+
+                   <div class="col-md-12">
+                    <label for="endDate"></label>
+                    <input type="text" class="form-control" id="endDate" placeholder="Return Date">
+                   </div>
+                  
+
+                  
+
+                  
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="invalidCheck"
+                      required
+                    />
+                    <label class="form-check-label"
+                      >I confirm that all data are correct</label
+                    >
+                    
+                  </div>
+
+                  <div class="form-button mt-3">
+                    <button id="submit" type="submit" class="btn btn-primary">
+                      Register
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="../js/ticketCountrySelector.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#startDate").datepicker({
+          autoclose: true,
+          format: "dd-mm-yyyy",
+        });
+        $("#endDate").datepicker({
+          autoclose: true,
+          format: "dd-mm-yyyy",
+        });
+      });
+    </script>
   </body>
 </html>
